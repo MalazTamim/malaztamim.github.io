@@ -1,0 +1,19 @@
+.desc-image {
+  height: auto;
+  width: 350px;
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.desc-text {
+  margin-top: 20px;
+}
+
+.fake-anchor {
+  position: relative;
+  top: -60px;
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
