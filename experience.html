@@ -24,17 +24,25 @@
       <link rel="stylesheet" href="css/devices.min.css" type="text/css">
   
   
-  
-  
-  
-  
-  
-  
-  <!-- 
-      - preload images
-    -->
-    <!-- <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
-    <link rel="preload" as="image" href="./assets/images/Blog.svg"> -->
+    <style>
+        /* Additional styles can be added here */
+        .company-image {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+
+        .role {
+            font-weight: bold;
+        }
+
+        .date {
+            color: #555;
+        }
+
+        .tasks {
+            margin-top: 10px;
+        }
+    </style>
   
   
   
@@ -84,15 +92,13 @@
                   <a href="#" class="nav-link" style="background-color: transparent; color: #0080ff;"><strong>Contact</strong></a>
               </li> -->
 
-          </ul>
-
-          <!-- Right -->
+          </ul>          
           <ul class="navbar-nav ml-auto">
 
-            <!-- Right -->
+            
             <ul class="navbar-nav ml-auto">
 
-              <!-- LinkedIn Icon and Link -->
+              
               <li class="nav-item">
                   <a class="nav-link" href="https://www.linkedin.com/in/malaztamim/"
                       target="_blank"><i class="fab fa-linkedin" style=""></i></a>
@@ -140,49 +146,71 @@
 
 
     <main>
-        <article>
-          
-            <!-- 
-                - #ABOUT
-            -->
-            <section class="section about" aria-label="about">
-                <div class="container">
-                  
-                    <div class="wrapper">
-                     
-    
-                        
-    
-                        <div class="hero-content">
-                            <h1 class="h1 hero-title" data-reveal="top" data-reveal-delay="0.5s">
-                                This page will be updated later!
-                            </h1>
-            
-                            <!-- <p class="section-text" data-reveal="top" data-reveal-delay="0.75s">
-                                Hello! I'm Malaz, a Data Scientist at Infineon Technologies and a Master student at TU Munich. I’m very passionate
-                                about the applications of AI to solve real world problems!
-                            </p> -->
-            
-                            
+        <div class="container">
+            <section>
+                <div class="col">
+                    <div class="col-md-12" style="padding: 14px;">
+                        <!-- <h6 class="mt-0 ml-3 mb-4 font-weight-bold" style="font-size: 2.0rem;">Experience</h6>                         -->
+
+
+
+                        <div class="media">
+                            <img src="assets/images/siemens.jpg" alt="Company 1 Logo" class="mr-3" width="200" height="120" style="padding: 14px;">
+                            <div class="media-body">
+                                <h5 class="mt-0 font-weight-bold">Participant in Siemens' Mentorship Program</h5>
+                                <p >Februrary 2024 - Present</p>
+                                <ul>
+                                    <li>Mentored by Dr. Susanne Stahnke from Siemens about the applications of AI at Siemens</li>
+                                    <li>Attending multiple events related to AI applications in Siemens, lab visits, and a three-day hackathon</li>
+
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </div>   
 
-                    <div class="wrapper">
-                        
-                    </div>
+                    <div class="col-md-12" style="padding: 14px;">
+                        <div class="media">
+                            <img src="assets/images/infineonn.png" alt="Company 1 Logo" class="mr-3" width="200" height="100" style="padding: 14px;">
+                            <div class="media-body">
+                                <h5 class="mt-0 font-weight-bold">Data Scientist</h5>
+                                <p >April 2023 - July 2023</p>
+                                <ul>
+                                    <li>Preprocessed and cleaned large datasets, including data extraction, transformation, and feature engineering.</li>
+                                    <li>Conducted exploratory data analysis to identify patterns, trends, and anomalies in the data.</li>
+                                    <li>Implemented machine learning models to predict the pick & place equipment failure time.</li>                                   
 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>   
+
+                    <div class="col-md-12" style="padding: 14px;">
+                        <div class="media">
+                            <img src="assets/images/google.webp" alt="Company 1 Logo" class="mr-3" width="200" height="200" style="padding: 14px;">
+                            <div class="media-body">
+                                <h5 class="mb-2 font-weight-bold">Participant in Google's Computer Science Research Mentorship Program</h5>
+                                <p> September 2021 - Decemer 2021</p>
+                                <ul>
+                                    <li>Mentored by Dr. Leo Cheng, a Google research scientist, regarding research pathways in machine learning and data science.</li>
+                                    <li> Attended a series of individual and pod meetings as well as workshops about research in computer science.   </li>
+                                    
+                           
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>  
                 </div>
             </section>
-            
-        </article>
+        </div>
+   
     </main>
 
-    <!-- Include your footer here if needed -->
+    
 
     <script src="./assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!-- <script src="about-button.js"></script> -->
 </body>
 
 </html>
