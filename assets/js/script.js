@@ -102,3 +102,9 @@ document.getElementById("home-btn").addEventListener("click", function() {
   // Change "destination.html" to the actual URL of the page you want to redirect to.
   window.location.href = "index.html";
 });
+
+
+// $(function () {
+//       // Include navbar using jQuery
+//       $("#navbar-placeholder").load("../navbar.html");
+// });
