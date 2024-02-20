@@ -24,9 +24,76 @@
   </head>
 
     <body>
-        <!-- Navbar -->
+         <!-- Navbar -->
+        
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+    <div class="container">
+  
+        <a class="navbar-brand" href="index.html">
+            <strong style="color: #0080ff;">Malaz Tamim</strong>
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto justify-content-start">  
+                <li class="nav-item">
+                    <a href="experience.html" class="nav-link"  style="color: #0080ff;"><strong>Experience</strong></a>
+                </li>
+  
+                <li class="nav-item">
+                    <a href="research.html" class="nav-link" style="color: #0080ff;"><strong>Research</strong></a>
+                </li>
+  
+                <li class="nav-item">
+                    <a href="education.html" class="nav-link" style="color: #0080ff;"><strong>Education</strong></a>
+                </li>
+  
+                <!-- <li class="nav-item">
+                    <a href="#" class="nav-link" style="color: #0080ff;"><strong>Volunteering</strong></a>
+                </li> -->
+  
+                <!-- <li class="nav-item active">
+                    <a href="#" class="nav-link" style="background-color: transparent; color: #0080ff;"><strong>Contact</strong></a>
+                </li> -->
+  
+            </ul>
+  
+            <ul class="navbar-nav ml-auto justify-content-start">  
+  
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/malaztamim/"
+                        target="_blank"><i class="fab fa-linkedin" style=""></i></a>
+                </li>
+  
+                <li class="nav-item">
+                    <a class="nav-link" href="https://twitter.com/tamimmalaz"
+                        target="_blank"><i class="fab fa-twitter" style=""></i></a>
+                </li>
+  
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/malaztamim/"
+                        target="_blank"><i class="fab fa-instagram" style=""></i></a>
+                </li>
+  
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.github.com/malaztamim" target="_blank">
+                        <i class="fab fa-github" style=""></i>
+                    </a>
+                </li>
 
-        <div id="navbar-placeholder"></div>
+                        
+            </ul>    
+        </div>
+  
+    </div>
+  </nav>
+
+        <!-- <div id="navbar-placeholder"></div> -->
         <div class="overlay" data-nav-toggler data-overlay></div>
   
 
@@ -86,16 +153,17 @@
         </main>
 
         
-
-        <script src="./assets/js/script.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
     <script>
         $(function () {
             // Include navbar using jQuery
             $("#navbar-placeholder").load("navbar.html");
         });
     </script>
+    <script src="./assets/js/script.js"></script>
+    
     </body>
 
 </html>
