@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="GaussianDet3D: Bridging Gaussian Splatting and Sparse LiDAR Detection for Multi-View 3D Object Detection.">
+  <meta name="keywords" content="GaussianDet3D, 3D Object Detection, Gaussian Splatting, LiDAR, Multi-View, CVPR, Autonomous Driving">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GaussianDet3D: Bridging Gaussian Splatting and Sparse LiDAR Detection for Multi-View 3D Object Detection</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GaussianDet3D: Bridging Gaussian Splatting and Sparse LiDAR Detection for Multi-View 3D Object Detection</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="/">Malaz Tamim</a><sup>1,3*</sup>,</span>
+            <span class="author-block">
+              <a href="https://wzzheng.net/" target="_blank">Wenzhao Zheng</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://cvg.cit.tum.de/members/mejo" target="_blank">Johannes Meier</a><sup>1,3,4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cvg.cit.tum.de/members/cremers" target="_blank">Daniel Cremers</a><sup>1,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/keutzer.html" target="_blank">Kurt Keutzer</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Technical University of Munich,</span>
+            <span class="author-block"><sup>2</sup>UC Berkeley,</span>
+            <span class="author-block"><sup>3</sup>Munich Center for Machine Learning,</span>
+            <span class="author-block"><sup>4</sup>DeepScenario</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 5px;">
+            <span class="author-block"><sup>*</sup>Corresponding author: <a href="mailto:malaz.tamim@tum.de">malaz.tamim@tum.de</a></span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 10px;">
+            <span class="author-block" style="font-weight: bold;">DriveX Workshop at CVPR 2026</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Accurate 3D object detection from cameras alone remains a fundamental challenge in autonomous driving, particularly
+            for precise localization and velocity estimation, two metrics critical for safe trajectory planning and collision avoidance.
+            Existing camera-based methods lift image features into dense Bird's-Eye View (BEV) grids, which struggle to capture
+            fine-grained geometry and motion cues.
+          </p>
+          <p>
+            We present <b>GaussianDet3D</b>, the first method, to the best of our knowledge, to apply 3D Gaussian Splatting from
+            multi-view images to 3D object detection in the context of autonomous driving, treating predicted Gaussian primitives as
+            a pseudo-LiDAR point cloud fed directly into a sparse LiDAR detector. Unlike a LiDAR point which carries only
+            coordinates and intensity, each Gaussian encodes parameters capturing geometry, orientation, opacity, and per-class
+            semantic distributions. By aggregating Gaussian point clouds across multiple frames, GaussianDet3D captures temporal
+            motion cues that enable precise velocity estimation without explicit tracking.
+          </p>
+          <p>
+            On the nuScenes benchmark, <b>GaussianDet3D</b> achieves <b>state-of-the-art translation error</b> and <b>velocity error</b>
+            among all camera-based methods, outperforming BEVFormer by <b>8.1%</b> and <b>13.1%</b> respectively, while remaining
+            competitive in overall detection score. These results demonstrate that Gaussian Splatting provides a geometrically
+            precise, semantically rich representation that bridges the gap between image-based perception and LiDAR-quality spatial
+            reasoning, particularly for the localization and motion estimation tasks most critical to autonomous driving safety.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<!-- Method Overview -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            GaussianDet3D consists of four components: an <b>image encoder</b> (ResNet-101-DCN with FPN), a <b>Gaussian lifter</b>
+            that backprojects image features into an initial set of 3D Gaussian primitives via depth estimation and Farthest Point
+            Sampling, a <b>Gaussian encoder</b> that iteratively refines the Gaussians through sparse 3D convolution and deformable
+            cross-attention, and <b>FSD V2</b>, a fully sparse LiDAR detector that receives the Gaussian point cloud directly.
+          </p>
+          <p>
+            Each Gaussian is defined as G<sub>i</sub> = [m<sub>i</sub>, s<sub>i</sub>, r<sub>i</sub>, a<sub>i</sub>, c<sub>i</sub>] &isin; &reals;<sup>28</sup>,
+            where m &isin; &reals;<sup>3</sup> is the 3D mean, s &isin; &reals;<sup>3</sup> the axis-aligned scale,
+            r &isin; &reals;<sup>4</sup> a unit quaternion, a &isin; &reals; the opacity, and c &isin; &reals;<sup>17</sup> unnormalized
+            semantic logits. The mean serves as the 3D coordinate and the remaining 25 parameters form the feature vector,
+            yielding a pseudo-LiDAR point cloud passed directly to FSD V2 without architectural modification.
+          </p>
+          <p>
+            For temporal aggregation, Gaussian point clouds from K consecutive keyframes are transformed into the current
+            ego-vehicle frame, with a dedicated timestamp channel encoding relative frame time to enable velocity estimation
+            without explicit tracking.
+          </p>
+        </div>
+        <img src="./static/images/pipeline.png" alt="GaussianDet3D pipeline overview." style="width: 100%;">
+        <p class="has-text-centered" style="margin-top: 10px;">
+          Overview of the <span class="dnerf">GaussianDet3D</span> pipeline. Multi-view images are encoded into deep feature maps,
+          lifted into initialized 3D Gaussians, refined by the Gaussian encoder, and finally interpreted as a Gaussian point cloud
+          fed to FSD V2 for 3D bounding box prediction.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <!-- nuScenes Test Set -->
+        <h3 class="title is-4">nuScenes Test Set</h3>
+        <div class="content has-text-justified">
+          <p>
+            Comparison on nuScenes test set. All methods use ResNet101-DCN backbone. <b>Bold</b> = best.
+          </p>
+        </div>
+        <div class="content">
+          <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Frames</th>
+                <th>mATE &darr;</th>
+                <th>mASE &darr;</th>
+                <th>mAVE &darr;</th>
+                <th>mAOE &darr;</th>
+                <th>mAAE &darr;</th>
+                <th>mAP &uarr;</th>
+                <th>NDS &uarr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DETR3D</td>
+                <td>1</td>
+                <td>0.641</td>
+                <td>0.255</td>
+                <td>0.845</td>
+                <td><b>0.394</b></td>
+                <td>0.133</td>
+                <td>0.412</td>
+                <td>0.479</td>
+              </tr>
+              <tr>
+                <td>Focal-PETR</td>
+                <td>1</td>
+                <td>0.617</td>
+                <td><b>0.250</b></td>
+                <td>0.862</td>
+                <td>0.398</td>
+                <td>0.146</td>
+                <td>0.426</td>
+                <td>0.486</td>
+              </tr>
+              <tr>
+                <td>PETR</td>
+                <td>1</td>
+                <td>0.647</td>
+                <td>0.251</td>
+                <td>0.933</td>
+                <td>0.433</td>
+                <td>0.143</td>
+                <td>0.391</td>
+                <td>0.455</td>
+              </tr>
+              <tr>
+                <td>PolarDETR</td>
+                <td>1</td>
+                <td>0.588</td>
+                <td>0.253</td>
+                <td>0.845</td>
+                <td>0.408</td>
+                <td><b>0.129</b></td>
+                <td>0.431</td>
+                <td>0.493</td>
+              </tr>
+              <tr>
+                <td>BEVFormer</td>
+                <td>4</td>
+                <td>0.631</td>
+                <td>0.257</td>
+                <td>0.435</td>
+                <td>0.405</td>
+                <td>0.143</td>
+                <td><b>0.445</b></td>
+                <td><b>0.535</b></td>
+              </tr>
+              <tr style="background-color: #f0f7ff;">
+                <td><b>GaussianDet3D (ours)</b></td>
+                <td>4</td>
+                <td><b>0.580</b></td>
+                <td>0.253</td>
+                <td><b>0.378</b></td>
+                <td>0.500</td>
+                <td><b>0.129</b></td>
+                <td>0.398</td>
+                <td>0.514</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- nuScenes Val Set -->
+        <h3 class="title is-4">nuScenes Validation Set</h3>
+        <div class="content has-text-justified">
+          <p>
+            Comparison on nuScenes validation set. All methods use ResNet101-DCN backbone. <b>Bold</b> = best.
+          </p>
+        </div>
+        <div class="content">
+          <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Frames</th>
+                <th>mATE &darr;</th>
+                <th>mASE &darr;</th>
+                <th>mAVE &darr;</th>
+                <th>mAOE &darr;</th>
+                <th>mAAE &darr;</th>
+                <th>mAP &uarr;</th>
+                <th>NDS &uarr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DETR3D</td>
+                <td>1</td>
+                <td>0.716</td>
+                <td>0.268</td>
+                <td>0.842</td>
+                <td>0.379</td>
+                <td>0.200</td>
+                <td>0.349</td>
+                <td>0.434</td>
+              </tr>
+              <tr>
+                <td>Focal-PETR</td>
+                <td>1</td>
+                <td>0.678</td>
+                <td><b>0.263</b></td>
+                <td>0.804</td>
+                <td>0.395</td>
+                <td>0.202</td>
+                <td>0.390</td>
+                <td>0.461</td>
+              </tr>
+              <tr>
+                <td>PETR</td>
+                <td>1</td>
+                <td>0.717</td>
+                <td>0.267</td>
+                <td>0.834</td>
+                <td>0.412</td>
+                <td><b>0.190</b></td>
+                <td>0.366</td>
+                <td>0.441</td>
+              </tr>
+              <tr>
+                <td>PolarDETR</td>
+                <td>2</td>
+                <td>0.707</td>
+                <td>0.269</td>
+                <td>0.518</td>
+                <td><b>0.344</b></td>
+                <td>0.196</td>
+                <td>0.383</td>
+                <td>0.488</td>
+              </tr>
+              <tr>
+                <td>BEVFormer</td>
+                <td>4</td>
+                <td>0.672</td>
+                <td>0.274</td>
+                <td>0.397</td>
+                <td>0.369</td>
+                <td>0.198</td>
+                <td><b>0.415</b></td>
+                <td><b>0.517</b></td>
+              </tr>
+              <tr style="background-color: #f0f7ff;">
+                <td><b>GaussianDet3D (ours)</b></td>
+                <td>4</td>
+                <td><b>0.649</b></td>
+                <td>0.272</td>
+                <td><b>0.340</b></td>
+                <td>0.537</td>
+                <td>0.199</td>
+                <td>0.380</td>
+                <td>0.490</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Ablation Studies -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Ablation Studies</h2>
+
+        <div class="columns">
+          <!-- Detector Backbone -->
+          <div class="column">
+            <h3 class="title is-4">Detector Backbone</h3>
+            <div class="content has-text-justified">
+              <p>Single-frame comparison with 6,400 Gaussians. All three LiDAR-style detectors are viable consumers of Gaussian point clouds.</p>
+            </div>
+            <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>mAP</th>
+                  <th>NDS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PointPillars</td>
+                  <td>0.2677</td>
+                  <td>0.3188</td>
+                </tr>
+                <tr>
+                  <td>FocalFormer3D</td>
+                  <td>0.3016</td>
+                  <td>0.3628</td>
+                </tr>
+                <tr style="background-color: #f0f7ff;">
+                  <td><b>FSD V2</b></td>
+                  <td><b>0.3198</b></td>
+                  <td><b>0.3676</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Gaussian Feature Components -->
+          <div class="column">
+            <h3 class="title is-4">Gaussian Feature Components</h3>
+            <div class="content has-text-justified">
+              <p>Incremental ablation of Gaussian parameters using PointPillars with 6,400 Gaussians, single frame.</p>
+            </div>
+            <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Ch.</th>
+                  <th>Components</th>
+                  <th>mAP</th>
+                  <th>NDS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>4</td>
+                  <td>mean + opacity</td>
+                  <td>0.1786</td>
+                  <td>0.2655</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>+ scale</td>
+                  <td>0.1979</td>
+                  <td>0.2842</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>+ rotation</td>
+                  <td>0.2156</td>
+                  <td>0.2880</td>
+                </tr>
+                <tr style="background-color: #f0f7ff;">
+                  <td>28</td>
+                  <td><b>+ semantics</b></td>
+                  <td><b>0.2664</b></td>
+                  <td><b>0.3187</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Temporal Aggregation -->
+        <h3 class="title is-4">Temporal Aggregation</h3>
+        <div class="content has-text-justified">
+          <p>Adding frames consistently improves detection. Going from 1 to 2 frames cuts velocity error by 64.0%.</p>
+        </div>
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+          <thead>
+            <tr>
+              <th>Frames</th>
+              <th>Gauss.</th>
+              <th>Total</th>
+              <th>mATE &darr;</th>
+              <th>mASE &darr;</th>
+              <th>mAVE &darr;</th>
+              <th>mAOE &darr;</th>
+              <th>mAP &uarr;</th>
+              <th>NDS &uarr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>6400</td>
+              <td>6400</td>
+              <td>0.7326</td>
+              <td>0.2772</td>
+              <td>1.2596</td>
+              <td>0.7084</td>
+              <td>0.3115</td>
+              <td>0.3619</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>6400</td>
+              <td>12800</td>
+              <td>0.7182</td>
+              <td>0.2774</td>
+              <td>0.4536</td>
+              <td>0.5981</td>
+              <td>0.3284</td>
+              <td>0.4386</td>
+            </tr>
+            <tr style="background-color: #f0f7ff;">
+              <td><b>4</b></td>
+              <td>6400</td>
+              <td>25600</td>
+              <td><b>0.6811</b></td>
+              <td><b>0.2772</b></td>
+              <td><b>0.3477</b></td>
+              <td><b>0.5685</b></td>
+              <td><b>0.3423</b></td>
+              <td><b>0.4637</b></td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Qualitative Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            Detection results under diverse conditions. BEV predictions in <b style="color: #4a7dff;">blue</b>, ground truth in <b style="color: #2ecc71;">green</b>.
+          </p>
+        </div>
+
+        <h3 class="title is-4">Daytime</h3>
+        <img src="./static/images/qual_e1c.png" alt="Qualitative results - daytime scene." style="width: 100%; margin-bottom: 2rem;">
+
+        <h3 class="title is-4">Cloudy</h3>
+        <img src="./static/images/qual_2d1.png" alt="Qualitative results - cloudy scene." style="width: 100%; margin-bottom: 2rem;">
+
+        <h3 class="title is-4">Rainy</h3>
+        <img src="./static/images/qual_bf0.png" alt="Qualitative results - rainy scene." style="width: 100%; margin-bottom: 2rem;">
+
+        <h3 class="title is-4">Nighttime</h3>
+        <img src="./static/images/qual_13f.png" alt="Qualitative results - nighttime scene." style="width: 100%; margin-bottom: 1rem;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <p>Citation information will be available upon arXiv publication.</p>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
