@@ -27,11 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var scholarSrc = isSubpage ? "../assets/images/icon-google-scholar.svg" : "assets/images/icon-google-scholar.svg";
 
   // Language toggle: active = bold blue, other = gray clickable
-  var langToggle = isGerman
-    ? '<li class="nav-item"><a class="nav-link" href="/" style="color: #aaa;" title="Switch to English">EN</a></li>' +
-      '<li class="nav-item"><a class="nav-link" style="color: #0080ff; font-weight: 900; cursor: default;">DE</a></li>'
-    : '<li class="nav-item"><a class="nav-link" style="color: #0080ff; font-weight: 900; cursor: default;">EN</a></li>' +
-      '<li class="nav-item"><a class="nav-link" href="/de" style="color: #aaa;" title="Auf Deutsch wechseln">DE</a></li>';
+  // var langToggle = isGerman
+  //   ? '<li class="nav-item"><a class="nav-link" href="/" style="color: #aaa;" title="Switch to English">EN</a></li>' +
+  //     '<li class="nav-item"><a class="nav-link" style="color: #0080ff; font-weight: 900; cursor: default;">DE</a></li>'
+  //   : '<li class="nav-item"><a class="nav-link" style="color: #0080ff; font-weight: 900; cursor: default;">EN</a></li>' +
+  //     '<li class="nav-item"><a class="nav-link" href="/de" style="color: #aaa;" title="Auf Deutsch wechseln">DE</a></li>';
+  var langToggle = '';
 
   var homeHref = isGerman ? "/de" : "/";
 
