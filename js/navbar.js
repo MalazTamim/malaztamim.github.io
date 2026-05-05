@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
   var currentPath = window.location.pathname.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
   var isGerman = currentPath.indexOf("/de") === 0;
 
@@ -74,4 +74,4 @@ document.addEventListener("DOMContentLoaded", function () {
   if (container) {
     container.innerHTML = html;
   }
-});
+})();

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
   var currentPath = window.location.pathname.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
   var isGerman = currentPath.indexOf("/de") === 0;
 
@@ -42,9 +42,16 @@ document.addEventListener("DOMContentLoaded", function () {
   var container = document.getElementById("footer");
   if (container) {
     container.innerHTML = html;
-  } else {
+  } else if (document.body) {
     var wrapper = document.createElement("div");
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper.firstChild);
+  } else {
+    // Body not yet available; wait for DOM ready then append
+    document.addEventListener("DOMContentLoaded", function () {
+      var w = document.createElement("div");
+      w.innerHTML = html;
+      document.body.appendChild(w.firstChild);
+    });
   }
-});
+})();
