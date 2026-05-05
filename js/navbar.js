@@ -2,12 +2,28 @@ document.addEventListener("DOMContentLoaded", function () {
   var currentPath = window.location.pathname.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
   var isGerman = currentPath.indexOf("/de") === 0;
 
+  // Inject navbar styles (sticky, border, hover effects)
+  if (!document.getElementById("navbar-styles")) {
+    var styleEl = document.createElement("style");
+    styleEl.id = "navbar-styles";
+    styleEl.textContent =
+      ".site-navbar { position: sticky; top: 0; z-index: 1030; border-bottom: 1px solid #e5e7eb; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); transition: box-shadow 0.2s ease; }" +
+      ".site-navbar .nav-link { transition: color 0.2s ease, transform 0.15s ease; position: relative; }" +
+      ".site-navbar .nav-link:hover { color: #005bbf !important; transform: translateY(-1px); }" +
+      ".site-navbar .nav-link strong::after { content: ''; position: absolute; left: 0.5rem; right: 0.5rem; bottom: 4px; height: 2px; background: #0080ff; transform: scaleX(0); transform-origin: center; transition: transform 0.2s ease; }" +
+      ".site-navbar .nav-link:hover strong::after { transform: scaleX(1); }" +
+      ".site-navbar .navbar-brand:hover strong { color: #005bbf !important; }";
+    document.head.appendChild(styleEl);
+  }
+
   var navItems = isGerman ? [
+    { text: "Publikationen", href: "/publications" },
     { text: "Forschung", href: "/research" },
     { text: "Bildung", href: "/education" },
     { text: "Erfahrung", href: "/experience" },
     { text: "Ehrenamt", href: "/volunteering" }
   ] : [
+    { text: "Publications", href: "/publications" },
     { text: "Research", href: "/research" },
     { text: "Education", href: "/education" },
     { text: "Experience", href: "/experience" },
@@ -36,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var homeHref = isGerman ? "/de" : "/";
 
-  var html = '<nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">' +
+  var html = '<nav class="navbar navbar-expand-lg navbar-light site-navbar" style="background-color: white;">' +
     '<a class="navbar-brand" href="' + homeHref + '">' +
     '<strong style="color: #0080ff;" class="ml-lg-5 ml-md-5 ml-sm-1 ml-1 mr-3">Malaz Tamim</strong>' +
     '</a>' +
