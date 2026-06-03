@@ -573,10 +573,44 @@
       
       
 
-        <h3 class="title is-4">Video Results</h3>
+        <!-- <h3 class="title is-4">Video Results</h3> -->
 
 
-        <img src="qual_1.gif" alt="Qualitative results" style="width: 100%; margin-bottom: 2rem;">
+        <!-- <img src="qual_1.gif" alt="Qualitative results" style="width: 100%; margin-bottom: 2rem;"> -->
+        <!-- <img src="scene-0003_2.gif" alt="Qualitative results" style="width: 100%; margin-bottom: 2rem;"> -->
+   <!-- GIF dropdown viewer -->
+        <!-- <div style="margin-bottom: 0.75rem;">
+          <select id="gifSelect" onchange="loadGif(this.value)" style="padding: 0.4rem 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; width: 100%; max-width: 420px;">
+            <option value="scene-0003.gif">scene-0003</option>
+            <option value="scene-0013.gif">scene-0013</option>
+            <option value="scene-0014.gif">scene-0014</option>
+          </select>
+        </div>
+        <img id="gifDisplay" src="gifs_total/scene-0003.gif" alt="" style="width: 100%;">
+ 
+      </div> -->
+      <h3 class="title is-4">Video Results</h3>
+
+<div style="margin-bottom: 0.75rem;">
+  <select id="gifSelect" onchange="loadGif(this.value)" style="padding: 0.4rem 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; width: 100%; max-width: 420px;">
+    <option value="scene-0003.gif">scene-0003</option>
+    <option value="scene-0013.gif">scene-0013</option>
+    <option value="scene-0014.gif">scene-0014</option>
+    <option value="scene-0015.gif">scene-0015</option>
+    <option value="scene-0016.gif">scene-0016</option>
+    <option value="scene-0017.gif">scene-0017</option>
+
+
+
+  </select>
+</div>
+<img id="gifDisplay" src="gifs_total/scene-0003.gif" alt="" style="width: 100%;">
+
+<script>
+  function loadGif(filename) {
+    document.getElementById("gifDisplay").src = "gifs_total/" + filename;
+  }
+</script>
 
               </div>
             </div>
