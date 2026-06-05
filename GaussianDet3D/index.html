@@ -164,7 +164,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Method</h2>
+        <h2 class="title is-3 has-text-centered">Method</h2>
         <div class="content has-text-justified">
           <p>
             GaussianDet3D consists of four components: an <b>image encoder</b> (ResNet-101-DCN with FPN), a <b>Gaussian lifter</b>
@@ -202,7 +202,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3 has-text-centered">Results</h2>
 
         <!-- nuScenes Test Set -->
         <h3 class="title is-4">nuScenes Test Set</h3>
@@ -401,7 +401,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Ablation Studies</h2>
+        <h2 class="title is-3 has-text-centered">Ablation Studies</h2>
 
         <div class="columns">
           <!-- Detector Backbone -->
@@ -552,7 +552,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Qualitative Results</h2>
+        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
         <div class="content has-text-justified">
           <p>
             Detection results under diverse conditions. BEV predictions in <b style="color: #4a7dff;">blue</b>, ground truth in <b style="color: #2ecc71;">green</b>.
@@ -589,27 +589,51 @@
         <img id="gifDisplay" src="gifs_total/scene-0003.gif" alt="" style="width: 100%;">
  
       </div> -->
-      <h3 class="title is-4">Video Results</h3>
+      <h3 class="title is-4 has-text-centered">Video Results</h3>
 
-<div style="margin-bottom: 0.75rem;">
-  <select id="gifSelect" onchange="loadGif(this.value)" style="padding: 0.4rem 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; width: 100%; max-width: 420px;">
-    <option value="scene-0003.gif">scene-0003</option>
-    <option value="scene-0013.gif">scene-0013</option>
-    <option value="scene-0014.gif">scene-0014</option>
-    <option value="scene-0015.gif">scene-0015</option>
-    <option value="scene-0016.gif">scene-0016</option>
-    <option value="scene-0017.gif">scene-0017</option>
-
-
-
-  </select>
+<div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; justify-content: center;">
+  <div>
+    <label for="timeSelect" style="font-weight: 600; margin-right: 0.5rem;">Scene Type:</label>
+    <select id="timeSelect" onchange="updateSceneOptions()" style="padding: 0.4rem 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px;">
+      <option value="day">Daytime</option>
+      <option value="night">Nighttime</option>
+    </select>
+  </div>
+  <div>
+    <label for="sceneSelect" style="font-weight: 600; margin-right: 0.5rem;">Scene:</label>
+    <select id="sceneSelect" onchange="updateGif()" style="padding: 0.4rem 0.75rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px;">
+    </select>
+  </div>
 </div>
-<img id="gifDisplay" src="gifs_total/scene-0003.gif" alt="" style="width: 100%;">
+<img id="gifDisplay" src="" alt="Scene visualization" style="width: 100%;">
 
 <script>
-  function loadGif(filename) {
-    document.getElementById("gifDisplay").src = "gifs_total/" + filename;
+  var scenes = {
+    day: ["scene-0003", , "scene-0013",  "scene-0017"],
+    night: ["scene-1062", "scene-1069", "scene-1073"]
+  };
+
+  function updateSceneOptions() {
+    var timeType = document.getElementById("timeSelect").value;
+    var sceneSelect = document.getElementById("sceneSelect");
+    sceneSelect.innerHTML = "";
+    scenes[timeType].forEach(function(scene) {
+      var opt = document.createElement("option");
+      opt.value = scene;
+      opt.text = scene;
+      sceneSelect.appendChild(opt);
+    });
+    updateGif();
   }
+
+  function updateGif() {
+    var timeType = document.getElementById("timeSelect").value;
+    var scene = document.getElementById("sceneSelect").value;
+    var folder = timeType === "night" ? "gifs_night" : "gifs_day";
+    document.getElementById("gifDisplay").src = folder + "/" + scene + ".gif";
+  }
+
+  updateSceneOptions();
 </script>
 
               </div>
