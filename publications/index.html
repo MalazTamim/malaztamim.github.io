@@ -49,6 +49,9 @@
       height: 100%;
       object-fit: cover;
     }
+    .pub-thumb img.pub-thumb-contain {
+      object-fit: contain;
+    }
     .pub-thumb-placeholder {
       color: #9ca3af;
       font-size: 0.75rem;
@@ -105,7 +108,7 @@
       <ul class="publications-list">
         <li class="pub-item">
           <div class="pub-thumb">
-            <img src="../GaussianDet3D/static/images/qual_e1c.png" alt="GaussianDet3D thumbnail">
+            <img class="pub-thumb-contain" src="../GaussianDet3D/static/images/pipeline.png" alt="GaussianDet3D thumbnail">
           </div>
           <div class="pub-content">
             <h4 class="pub-title">GaussianDet3D: Bridging Gaussian Splatting and Sparse LiDAR Detection for Multi-View 3D Object Detection</h4>
@@ -119,7 +122,7 @@
         </li>
         <li class="pub-item">
           <div class="pub-thumb">
-            <span class="pub-thumb-placeholder">Figure coming soon</span>
+            <img class="pub-thumb-contain" src="../assets/images/grid_6x2.png" alt="3D Person Detection thumbnail">
           </div>
           <div class="pub-content">
             <h4 class="pub-title">A Comparative Study of 3D Person Detection: Sensor Modalities and Robustness in Diverse Indoor and Outdoor Environments</h4>
