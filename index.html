@@ -90,13 +90,29 @@
     .about-text p { margin: 0; line-height: 1.65; }
 
     /* Affiliation logo strip */
+    .affiliation-groups {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 0 0 2.5rem;
+    }
+    .affiliation-group + .affiliation-group { border-left: 1px solid #e5e7eb; padding-left: 32px; }
+    .aff-heading {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888;
+      text-align: center;
+      margin: 0 0 6px;
+    }
     .affiliations {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       padding: 0;
-      margin: 0 0 2.5rem;
+      margin: 0;
     }
     .affiliations a {
       display: flex;
@@ -125,6 +141,7 @@
     .aff-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
     .aff-name { font-weight: 500; font-size: 0.95rem; line-height: 1.3; color: #1a1a1a; }
     .aff-role { font-size: 0.85rem; line-height: 1.35; color: #666; margin-top: 2px; }
+    .aff-years { font-size: 0.8rem; line-height: 1.35; color: #888; margin-top: 2px; }
     .aff-note { font-size: 0.8rem; line-height: 1.35; color: #666; margin-top: 8px; }
     .aff-partners { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin-top: 5px; }
     .aff-partner {
@@ -191,7 +208,9 @@
 
     /* Phones */
     @media (max-width: 767px) {
-      .affiliations { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 2rem; }
+      .affiliation-groups { grid-template-columns: 1fr; gap: 20px; margin-bottom: 2rem; }
+      .affiliation-group + .affiliation-group { border-left: 0; padding-left: 0; border-top: 1px solid #e5e7eb; padding-top: 20px; }
+      .affiliations { gap: 8px; }
       .about {
         flex-direction: column;
         align-items: flex-start;
@@ -237,45 +256,59 @@
       </div>
     </section>
 
-    <ul class="affiliations" aria-label="Where I have worked and studied">
-      <li>
-        <a href="/education">
-          <span class="aff-logo"><img src="./assets/images/TUM0.png" alt="Technical University of Munich"></span>
-          <span class="aff-name">Technical University of Munich</span>
-          <span class="aff-role">M.Sc. in Data Engineering and Analytics</span>
-          <span class="aff-note">Thesis research at</span>
-          <span class="aff-partners">
-            <span class="aff-partner aff-partner-logo"><img src="./assets/images/tum_cvg.jpg" alt="TUM Computer Vision Group"></span>
-            <span class="aff-partner aff-partner-logo"><img src="./assets/images/bair.webp" alt="Berkeley AI Research (BAIR)"></span>
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="/research">
-          <span class="aff-logo"><img src="./assets/images/iks.png" alt="Fraunhofer IKS"></span>
-          <span class="aff-name">Fraunhofer IKS</span>
-          <span class="aff-role">Computer Vision Student Researcher</span>
-        </a>
-      </li>
-      <li>
-        <a href="/experience">
-          <span class="aff-logo"><img src="./assets/images/infineonn.png" alt="Infineon Technologies"></span>
-          <span class="aff-name">Infineon Technologies</span>
-          <span class="aff-role">Data Scientist</span>
-        </a>
-      </li>
-      <li>
-        <a href="/education">
-          <span class="aff-logo"><img src="./assets/images/aub-logo.webp" alt="American University of Beirut"></span>
-          <span class="aff-name">American University of Beirut</span>
-          <span class="aff-role">B.S. in Computer Science</span>
-          <span class="aff-note">Semester abroad at</span>
-          <span class="aff-partners">
-            <span class="aff-partner aff-partner-logo"><img src="./assets/images/upenn.webp" alt="University of Pennsylvania"></span>
-          </span>
-        </a>
-      </li>
-    </ul>
+    <div class="affiliation-groups">
+      <section class="affiliation-group" aria-labelledby="aff-education">
+        <h2 class="aff-heading" id="aff-education">Education</h2>
+        <ul class="affiliations">
+          <li>
+            <a href="/education">
+              <span class="aff-logo"><img src="./assets/images/TUM0.png" alt="Technical University of Munich"></span>
+              <span class="aff-name">Technical University of Munich</span>
+              <span class="aff-role">M.Sc. in Data Engineering and Analytics</span>
+              <span class="aff-years">2022–2026</span>
+              <span class="aff-note">Thesis research at</span>
+              <span class="aff-partners">
+                <span class="aff-partner aff-partner-logo"><img src="./assets/images/tum_cvg.jpg" alt="TUM Computer Vision Group"></span>
+                <span class="aff-partner aff-partner-logo"><img src="./assets/images/bair.webp" alt="Berkeley AI Research (BAIR)"></span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="/education">
+              <span class="aff-logo"><img src="./assets/images/aub-logo.webp" alt="American University of Beirut"></span>
+              <span class="aff-name">American University of Beirut</span>
+              <span class="aff-role">B.S. in Computer Science</span>
+              <span class="aff-years">2019–2022</span>
+              <span class="aff-note">Semester abroad at</span>
+              <span class="aff-partners">
+                <span class="aff-partner aff-partner-logo"><img src="./assets/images/upenn.webp" alt="University of Pennsylvania"></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="affiliation-group" aria-labelledby="aff-experience">
+        <h2 class="aff-heading" id="aff-experience">Experience</h2>
+        <ul class="affiliations">
+          <li>
+            <a href="/research">
+              <span class="aff-logo"><img src="./assets/images/iks.png" alt="Fraunhofer IKS"></span>
+              <span class="aff-name">Fraunhofer IKS</span>
+              <span class="aff-role">Computer Vision Student Researcher</span>
+              <span class="aff-years">2024–2026</span>
+            </a>
+          </li>
+          <li>
+            <a href="/experience">
+              <span class="aff-logo"><img src="./assets/images/infineonn.png" alt="Infineon Technologies"></span>
+              <span class="aff-name">Infineon Technologies</span>
+              <span class="aff-role">Data Scientist</span>
+              <span class="aff-years">2023</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
 
     <h1 class="mb-0">News &amp; Activities</h1>
     <hr class="mt-0" />

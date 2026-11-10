@@ -122,10 +122,13 @@ html[data-theme="dark"] .site-footer .footer-text { color: #8b93a0; }
 
 /* homepage */
 html[data-theme="dark"] .about-photo { border-color: #2a2f36; }
+html[data-theme="dark"] .affiliation-group + .affiliation-group { border-color: #2a2f36; }
+html[data-theme="dark"] h2.aff-heading { color: #7d8592; }
 html[data-theme="dark"] .affiliations a { color: inherit; }
 html[data-theme="dark"] .affiliations a:hover { background: #1a1e24; }
 html[data-theme="dark"] .aff-name { color: #f3f4f6; }
 html[data-theme="dark"] .aff-role { color: #9aa1ad; }
+html[data-theme="dark"] .aff-years { color: #7d8592; }
 html[data-theme="dark"] .aff-note { color: #9aa1ad; }
 html[data-theme="dark"] .aff-partner { background: transparent; border-color: #2f4a6b; color: #4da3ff; }
 html[data-theme="dark"] .aff-partner-logo { background: #ffffff; border-color: #ffffff; }
