@@ -12,6 +12,20 @@
     <meta name="google-site-verification" content="w_aiix1eHi-roOm6NqAt36eFuu9PeEozTFqkUD">
     
     <title>Malaz Tamim</title>
+    <meta name="description" content="Computer vision researcher working on 3D perception for autonomous driving and robotics. M.Sc. from TUM; Best Paper Award at the CVPR 2026 DriveX Workshop.">
+    <link rel="canonical" href="https://malaztamim.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Malaz Tamim">
+    <meta property="og:title" content="Malaz Tamim">
+    <meta property="og:description" content="Computer vision researcher working on 3D perception for autonomous driving and robotics. M.Sc. from TUM; Best Paper Award at the CVPR 2026 DriveX Workshop.">
+    <meta property="og:url" content="https://malaztamim.com/">
+    <meta property="og:image" content="https://malaztamim.com/assets/images/my_picture.jpg">
+    <meta property="og:image:alt" content="Portrait of Malaz Tamim">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@tamimmalaz">
+    <meta name="twitter:title" content="Malaz Tamim">
+    <meta name="twitter:description" content="Computer vision researcher working on 3D perception for autonomous driving and robotics. M.Sc. from TUM; Best Paper Award at the CVPR 2026 DriveX Workshop.">
+    <meta name="twitter:image" content="https://malaztamim.com/assets/images/my_picture.jpg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
 
@@ -56,6 +70,25 @@
     .pub-links a:hover { background: #0080ff; color: white; }
     .pub-links a i { margin-right: 5px; }
 
+    /* About */
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin: 3rem 0 2.5rem;
+    }
+    .about-photo {
+      flex-shrink: 0;
+      width: 190px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #f8f9fa;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .about-text { flex: 1; min-width: 0; }
+    .about-text p { margin: 0; line-height: 1.65; }
+
     /* News cards */
     .events > ul {
       list-style: none;
@@ -63,6 +96,8 @@
       margin: 0;
     }
     .events > ul > li {
+      display: flex;
+      gap: 18px;
       padding: 14px 18px;
       margin-bottom: 10px;
       background: #fafbfc;
@@ -76,6 +111,42 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
       background: #ffffff;
     }
+    .news-date {
+      flex: 0 0 124px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #374151;
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+    .news-body { flex: 1; min-width: 0; }
+    .events.collapsed > ul > li:nth-child(n+7) { display: none; }
+    .news-toggle {
+      display: block;
+      margin: 16px auto 40px;
+      padding: 6px 18px;
+      font-size: 0.9rem;
+      color: #0080ff;
+      background: #ffffff;
+      border: 1px solid #0080ff;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .news-toggle:hover, .news-toggle:focus { background: #0080ff; color: #ffffff; outline: none; }
+
+    /* Phones */
+    @media (max-width: 767px) {
+      .about {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 2rem 0;
+      }
+      .about-photo { width: 150px; height: 174px; align-self: center; }
+      .events > ul > li { flex-direction: column; gap: 2px; padding: 12px 14px; }
+      .news-date { flex: none; }
+    }
 
   </style>
 </head>
@@ -86,128 +157,129 @@
   <div id="navbar"></div>
   <script src="js/navbar.js"></script>
 
-      <main>
-          <article>
+  <main class="page-wrap">
 
-              <main>
+    <section class="about wow fadeIn">
+      <img src="./assets/images/my_picture.jpg" class="about-photo z-depth-1-half wow rollIn" alt="Profile picture">
+      <div class="about-text">
+        <p class="wow bounceInRight">
+          I am a computer vision researcher focused on 3D perception. I recently completed my M.Sc. in
+          <a href="https://www.tum.de/en/studies/degree-programs/detail/data-engineering-and-analytics-master-of-science-msc" target="_blank">
+          Data Engineering and Analytics
+          </a>
+          at the Technical University of Munich (TUM), fully funded by <a href="https://www.daad.de/en/" target="_blank">DAAD</a>.
+          My master's thesis on 3D object detection using Gaussian Splatting, written in the Computer Vision Group led by Prof. <a style="color: #0080ff;" href="https://scholar.google.com/citations?user=cXQciMEAAAAJ" target="_blank">Daniel Cremers</a>,
+          led to <a href="/GaussianDet3D" target="_blank" style="color: #0080ff;">GaussianDet3D</a>, which received the Best Paper Award (1st Prize) at the CVPR 2026 DriveX Workshop.
+          <br>
+          Alongside my studies, I worked as a Computer Vision Student Researcher at the Fraunhofer Institute for Cognitive Systems (IKS), focusing on multimodal 3D perception, sensor fusion, and robust real-time person detection for robotics, and as a Data Scientist at Infineon Technologies.
+          I hold a B.S. in Computer Science from the American University of Beirut (AUB), fully funded through the
+          <a href="https://www.tomorrowsleadersprogram.org/" target="_blank">Tomorrow's Leaders Program</a>, including a semester abroad at the University of Pennsylvania.
+          <br>
 
+          <!-- My research interests
+          are Computer Vision, Perception, 3D Scene Understanding, and 3D Generative Models. -->
+        </p>
+      </div>
+    </section>
 
+    <h1 class="mb-0">News &amp; Activities</h1>
+    <hr class="mt-0" />
 
-
-
-                  <section class="mt-5 wow fadeIn">
-                    <div class="row align-items-center text-center text-md-left">
-                      <div class="col-12 col-sm-4 col-md-2 mb-4">
-                        <img src="./assets/images/my_picture.jpg" class="img-fluid z-depth-1-half wow rollIn"
-                        style="border-radius: 8px; width: 190px; height: 220px; margin-left: 15%; border: 2px solid #f8f9fa; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease;" alt="Profile picture">
-                      </div>
-                      
-                      <div class="col-12  col-sm-8 col-md-10 mb-4 ">
-                        <div class="ml-5 mr-4">
-
-                        <h1 class="h1 mb-3 wow bounce">About Me</h1>
-                        <p class="wow bounceInRight mr-md-4   ">
-                          I am a master's student in
-                          <a href="https://www.tum.de/en/studies/degree-programs/detail/data-engineering-and-analytics-master-of-science-msc" target="_blank">
-                            Data Engineering and Analytics
-                          </a>
-                          
-                          with a focus on Computer Vision at the Technical 
-                            University of Munich (TUM), fully funded by <a href="https://www.daad.de/en/" target="_blank"> DAAD</a>.                            
-                            <br>
-                             I am currently completing my master's thesis on 3D Object Detection using Gaussian Splatting within the Computer Vision Group led by Prof. <a style="color: #0080ff;" href="https://scholar.google.com/citations?user=cXQciMEAAAAJ" target="_blank">Daniel Cremers</a>.
-                          I am also working as a Computer Vision Student Researcher at the Fraunhofer Institute for Cognitive Systems (IKS), where I focus on multimodal 3D perception, sensor fusion, and robust real-time person detection for robotics.
-                          
-                             I graduated from the American University of Beirut (AUB) in June 2022 with a B.S. in Computer Science, fully
-                          funded through the
-                          <a href="https://www.tomorrowsleadersprogram.org/" target="_blank">Tomorrow's Leaders Program</a>. 
-                          During my undergraduate studies, I had the opportunity to spend a semester abroad at the University of Pennsylvania. 
-                          Throughout my academic path, I have worked as a Student Researcher at both AUB and TUM, and as a Data Scientist at Infineon Technologies.
-                          <br>
-
-                          <!-- My research interests 
-                          are Computer Vision, Perception, 3D Scene Understanding, and 3D Generative Models. -->
-
-                        </p>
-                      </div>
-
-                      </div>
-                    </div>
-                  </section>     
-                </main> 
-          </article>
-      </main>
-
-
-      
-
-
-
-      <div class="ml-5"> <h1 class="ml-1 mb-0 ">News &amp; Activities</h1>   </div>
-      <hr class="mt-0"  />
-
-  <div class="ml-5 mr-5"  >
     <div class="events">
-      <ul>
-        <li> November 2026: Our paper <strong>"MV-PROWL: Leveraging Vision Foundation Models for Multiview Person Detection in Industrial Safety Monitoring"</strong> has been accepted at the <strong>Computer Vision Conference (CVC) 2027</strong>, together with Andrea Matic-Flierl, Firdevs Su Aydin, Poulami Sinhamahapatra, Kaicheng Ni, and Karsten Roscher from Fraunhofer IKS. 🎉 </li>
-        <li> June 2026: My master's thesis paper <strong>"GaussianDet3D"</strong> received the <strong>🏆 IEEE/CVF CVPR 2026 DriveX Best Paper Award (1st Prize)</strong>! Check out the <a href="/GaussianDet3D" target="_blank" style="color: #0080ff;"><strong>project page</strong></a>. 🎉 </li>
-        <li> March 2026: My master's thesis paper <strong>"GaussianDet3D: Bridging Gaussian Splatting and Sparse LiDAR Detection for Multi-View 3D Object Detection"</strong> has been accepted at the <strong>DriveX Workshop at CVPR 2026 with an oral presentation</strong>. Check out the <a href="/GaussianDet3D" target="_blank" style="color: #0080ff;"><strong>project page</strong></a>. 🎉 </li>
-        <li> January 2026: I officially completed my Master’s degree after submitting my thesis at the <a href="https://cvg.cit.tum.de/" target="_blank" rel="noopener noreferrer">Computer Vision Group</a>, titled “3D Object Detection Using Gaussian Splatting from Multi-View Images,” and received a grade of 1.0. </li>
-        <li> December 2025: My first authored paper titled <strong>"A Comparative Study of 3D Person Detection: Sensor Modalities and Robustness in Diverse Indoor and Outdoor Environments"</strong> has been accepted as a <strong>full paper</strong> with an <strong>oral presentation</strong> at <strong>VISAPP 2026</strong> in Marbella, Spain. You can find the paper on arXiv <a href="https://www.arxiv.org/abs/2602.05538" target="_blank" >here</a>. 🎉 </li>
-        <li> November 2025: I was selected to attend the <a href="https://www.mena.ml/" target="_blank"> MenaML Winter School 2026</a> in KAUST, Saudi Arabia,
-           where I will be presenting a poster of my master's thesis work on 3D Object Detection Using Gaussian Splatting from Multi-View Images. </li>
-
-
-           <li>September 2025: I contributed to a paper submitted by our team at Fraunhofer IKS to ICRA 2026.</li>
-           
-
-        <li> July 2025: I attended the  <a href="https://www.eeml.eu" target="_blank">Eastern European Machine Learning Summer School</a>  in Sarajevo, Bosnia and Herzegovina. </li>
-
-
-        
-
-        <li>February 2025: I was selected with full funding to attend the
-
-
-          <a href="https://2025.mena.ml/home" target="_blank">MenaML Winter School</a> in Doha, Qatar, 
-          where I presented a poster on 3D Object Detection using camera and 4D radar. 
-          You can learn more about my experience and learnings and view my poster 
-          <a href="/menaml" target="_blank" style="color: #0080ff;"><strong>here</strong></a>.
-
-
-      </li>
-        
-
-        <li> January 2025: I have started my master's thesis research internship at Professor Daniel Cremers' Group at TUM and <a href="https://bair.berkeley.edu/" target="_blank">
-          BAIR, UC Berkeley</a>. </li>
-        
+      <!-- To add news, copy this block to the top of the list:
         <li>
-          January 2025:</strong> I completed the <strong>Guided Research Project</strong> at TUM on 
-          3D Object Detection Using Camera and 4D Radar with a grade of <strong>1.0</strong>.
-          <!-- and the <strong>Application Project</strong> on 3D Pedestrian Detection in Robotics Using Camera and LIDAR Fusion
-          with a grade of <strong>1.3</strong>. -->
+          <span class="news-date">Month Year</span>
+          <div class="news-body">Text of the news item.</div>
         </li>
-        
-          <li> April 2024: I have started my research internship with Professor<a href="https://scholar.google.com/citations?user=OCVPHl0AAAAJ" target="_blank">
-             Gerhard Rigoll</a>'s Group at TUM, working on 3D object detection.</li>
-          <!-- <li> Febraury 2024: I have been accepted to 
-            <a style="color: #0080ff;" href="https://ecosystem.siemens.com/topic/detail/default/832/overview" target="_blank">Siemens Mentorship Program</a>. 
-          
-          </li> -->
-          <li> October 2023: I have started my Computer Vision research internship with Dr.
-            <a style="color: #0080ff;" href="https://scholar.google.de/citations?view_op=list_works&hl=en&hl=en&user=TFsE4BIAAAAJ&pagesize=80&sortby=pubdate" target="_blank">Federico Tombari</a>'s lab as a part of 
-            3D Computer Vision Praktikum at TUM.
-            Final Presentation can be found <a href="https://drive.google.com/file/d/1dZjDYb1tOq8HcOrTxfBzRX6ktzWIwxOl/view?usp=sharing" target="_blank">here</a>. 
-          <li> July 2023: I gave a presentation as part of the 3D Machine Learning Seminar at TUM, in which I provided a summary and an explanation of the paper
-            <a style="color: #0080ff;" href="https://simongiebenhain.github.io/NPHM/" target="_blank">"Learning Neural Parametric Head Models (NPHM)"</a>. I received a grade of 1.0 for my presentation. Report 
-            <a style="color: #0080ff;" href="https://drive.google.com/file/d/18FRnH9Ou6uv17U60f8DDCBnp2KFzjXf8/view?usp=sharing" target="_blank">here</a>.
-          <li> April 2023: I have started my three-month contract at Infineon Technologies in collaboration with TUM.ai.
-          
+      The first 6 items are shown; the rest sit behind the "Show earlier news" button. -->
+      <ul>
+        <li>
+          <span class="news-date">November 2026</span>
+          <div class="news-body">Our paper <strong>"MV-PROWL: Leveraging Vision Foundation Models for Multiview Person Detection in Industrial Safety Monitoring"</strong> has been accepted at the <strong>Computer Vision Conference (CVC) 2027</strong>, together with Andrea Matic-Flierl, Firdevs Su Aydin, Poulami Sinhamahapatra, Kaicheng Ni, and Karsten Roscher from Fraunhofer IKS. 🎉</div>
+        </li>
+        <li>
+          <span class="news-date">June 2026</span>
+          <div class="news-body">My master's thesis paper <strong>"GaussianDet3D"</strong> received the <strong>🏆 IEEE/CVF CVPR 2026 DriveX Best Paper Award (1st Prize)</strong>! Check out the <a href="/GaussianDet3D" target="_blank" style="color: #0080ff;"><strong>project page</strong></a>. 🎉</div>
+        </li>
+        <li>
+          <span class="news-date">March 2026</span>
+          <div class="news-body">My master's thesis paper <strong>"GaussianDet3D: Bridging Gaussian Splatting and Sparse LiDAR Detection for Multi-View 3D Object Detection"</strong> has been accepted at the <strong>DriveX Workshop at CVPR 2026 with an oral presentation</strong>. Check out the <a href="/GaussianDet3D" target="_blank" style="color: #0080ff;"><strong>project page</strong></a>. 🎉</div>
+        </li>
+        <li>
+          <span class="news-date">January 2026</span>
+          <div class="news-body">I officially completed my Master’s degree after submitting my thesis at the <a href="https://cvg.cit.tum.de/" target="_blank" rel="noopener noreferrer">Computer Vision Group</a>, titled “3D Object Detection Using Gaussian Splatting from Multi-View Images,” and received a grade of 1.0.</div>
+        </li>
+        <li>
+          <span class="news-date">December 2025</span>
+          <div class="news-body">My first authored paper titled <strong>"A Comparative Study of 3D Person Detection: Sensor Modalities and Robustness in Diverse Indoor and Outdoor Environments"</strong> has been accepted as a <strong>full paper</strong> with an <strong>oral presentation</strong> at <strong>VISAPP 2026</strong> in Marbella, Spain. You can find the paper on arXiv <a href="https://www.arxiv.org/abs/2602.05538" target="_blank" >here</a>. 🎉</div>
+        </li>
+        <li>
+          <span class="news-date">November 2025</span>
+          <div class="news-body">I was selected to attend the <a href="https://www.mena.ml/" target="_blank"> MenaML Winter School 2026</a> in KAUST, Saudi Arabia, where I will be presenting a poster of my master's thesis work on 3D Object Detection Using Gaussian Splatting from Multi-View Images.</div>
+        </li>
+        <li>
+          <span class="news-date">July 2025</span>
+          <div class="news-body">I attended the <a href="https://www.eeml.eu" target="_blank">Eastern European Machine Learning Summer School</a> in Sarajevo, Bosnia and Herzegovina.</div>
+        </li>
+        <li>
+          <span class="news-date">February 2025</span>
+          <div class="news-body">I was selected with full funding to attend the <a href="https://2025.mena.ml/home" target="_blank">MenaML Winter School</a> in Doha, Qatar, where I presented a poster on 3D Object Detection using camera and 4D radar. You can learn more about my experience and learnings and view my poster <a href="/menaml" target="_blank" style="color: #0080ff;"><strong>here</strong></a>.</div>
+        </li>
+        <li>
+          <span class="news-date">January 2025</span>
+          <div class="news-body">I have started my master's thesis research internship at Professor Daniel Cremers' Group at TUM and <a href="https://bair.berkeley.edu/" target="_blank"> BAIR, UC Berkeley</a>.</div>
+        </li>
+        <li>
+          <span class="news-date">January 2025</span>
+          <div class="news-body">I completed the <strong>Guided Research Project</strong> at TUM on 3D Object Detection Using Camera and 4D Radar with a grade of <strong>1.0</strong>. <!-- and the <strong>Application Project</strong> on 3D Pedestrian Detection in Robotics Using Camera and LIDAR Fusion with a grade of <strong>1.3</strong>. --></div>
+        </li>
+        <li>
+          <span class="news-date">April 2024</span>
+          <div class="news-body">I have started my research internship with Professor<a href="https://scholar.google.com/citations?user=OCVPHl0AAAAJ" target="_blank"> Gerhard Rigoll</a>'s Group at TUM, working on 3D object detection.</div>
+        </li>
+        <!-- <li> Febraury 2024: I have been accepted to <a style="color: #0080ff;" href="https://ecosystem.siemens.com/topic/detail/default/832/overview" target="_blank">Siemens Mentorship Program</a>. </li> -->
+        <li>
+          <span class="news-date">October 2023</span>
+          <div class="news-body">I have started my Computer Vision research internship with Dr. <a style="color: #0080ff;" href="https://scholar.google.de/citations?view_op=list_works&hl=en&hl=en&user=TFsE4BIAAAAJ&pagesize=80&sortby=pubdate" target="_blank">Federico Tombari</a>'s lab as a part of 3D Computer Vision Praktikum at TUM. Final Presentation can be found <a href="https://drive.google.com/file/d/1dZjDYb1tOq8HcOrTxfBzRX6ktzWIwxOl/view?usp=sharing" target="_blank">here</a>.</div>
+        </li>
+        <li>
+          <span class="news-date">July 2023</span>
+          <div class="news-body">I gave a presentation as part of the 3D Machine Learning Seminar at TUM, in which I provided a summary and an explanation of the paper <a style="color: #0080ff;" href="https://simongiebenhain.github.io/NPHM/" target="_blank">"Learning Neural Parametric Head Models (NPHM)"</a>. I received a grade of 1.0 for my presentation. Report <a style="color: #0080ff;" href="https://drive.google.com/file/d/18FRnH9Ou6uv17U60f8DDCBnp2KFzjXf8/view?usp=sharing" target="_blank">here</a>.</div>
+        </li>
+        <li>
+          <span class="news-date">April 2023</span>
+          <div class="news-body">I have started my three-month contract at Infineon Technologies in collaboration with TUM.ai.</div>
+        </li>
       </ul>
     </div>
-  </div>
 
+  </main>
 
+  <script>
+    // News list: show the latest 6 items, keep the rest behind a toggle button
+    (function () {
+      var LIMIT = 6;
+      var events = document.querySelector(".events");
+      if (!events) return;
+      var items = events.querySelectorAll("ul > li");
+      if (items.length <= LIMIT) return;
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "news-toggle";
+      function render() {
+        var collapsed = events.classList.contains("collapsed");
+        button.textContent = collapsed ? "Show earlier news (" + (items.length - LIMIT) + ")" : "Show less";
+        button.setAttribute("aria-expanded", String(!collapsed));
+      }
+      button.addEventListener("click", function () {
+        events.classList.toggle("collapsed");
+        render();
+      });
+      events.classList.add("collapsed");
+      render();
+      events.appendChild(button);
+    })();
+  </script>
 
   <script src="js/footer.js"></script>
 

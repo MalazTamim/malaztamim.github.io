@@ -8,7 +8,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Malaz Tamim</title>
+    <title>Research — Malaz Tamim</title>
+    <meta name="description" content="Research experience of Malaz Tamim in 3D computer vision at the TUM Computer Vision Group, Fraunhofer IKS and other labs.">
+    <link rel="canonical" href="https://malaztamim.com/research/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Malaz Tamim">
+    <meta property="og:title" content="Research — Malaz Tamim">
+    <meta property="og:description" content="Research experience of Malaz Tamim in 3D computer vision at the TUM Computer Vision Group, Fraunhofer IKS and other labs.">
+    <meta property="og:url" content="https://malaztamim.com/research/">
+    <meta property="og:image" content="https://malaztamim.com/assets/images/my_picture.jpg">
+    <meta property="og:image:alt" content="Portrait of Malaz Tamim">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@tamimmalaz">
+    <meta name="twitter:title" content="Research — Malaz Tamim">
+    <meta name="twitter:description" content="Research experience of Malaz Tamim in 3D computer vision at the TUM Computer Vision Group, Fraunhofer IKS and other labs.">
+    <meta name="twitter:image" content="https://malaztamim.com/assets/images/my_picture.jpg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css">
 
@@ -43,10 +57,9 @@
                             <h5 class="mt-0 font-weight-bold">Research Assistant with Dr. <a href="https://scholar.google.com/citations?user=cXQciMEAAAAJ&hl=en" target="_blank"> Daniel Cremers</a>' Computer Vision Group</h5>
                             <p >January 2025 - Present</p>
                             <ul>
-                                <li> Conducted a comprehensive literature review on 3D object detection using camera and LiDAR, sparse detection models, and Gaussian-based perception methods.</li>
-                                <li>Implemented Gaussian Splatting to derive semantic Gaussians from multi-view images.</li>
-                                <li>Built 3D object detection models leveraging the extracted Gaussians.</li>
-                                <li>Evaluated the performance of the proposed method on the nuScenes dataset.</li>
+                                <li>Developed GaussianDet3D as my master's thesis project in Prof. Daniel Cremers' group at TUM, using Gaussian splatting to represent multi-view input images as 3D Gaussians, then converting these into pseudo-LiDAR inputs for a sparse LiDAR detector.</li>
+                                <li>Achieved the lowest translation (mATE 0.580) and velocity (mAVE 0.378) errors among camera-based methods on the nuScenes test set, improving over BEVFormer by 8.1% and 13.1%.</li>
+                                <li>Implemented multi-frame Gaussian aggregation with timestamp encoding, cutting velocity error by 64%.</li>
                             </ul>
                         </div>
                     </div>
@@ -57,11 +70,11 @@
                     <div class="media">
                         <img src="../assets/images/iks.png" class=" col-4  col-sm-3  col-md-2" class="mr-3" width="300" height="120" style="padding: 14px;" alt="TUM Logo" >
                         <div class="media-body">
-                            <h5 class="mt-0 font-weight-bold">Research Assistant with Dr. <a href="https://dblp.org/pid/363/1213.html" target="_blank">Andrea Matic </a> and <a href="https://scholar.google.com/citations?user=ymcYtt8AAAAJ" target="_blank">Poulami Sinhamahapatra</a> </h5>
-                            <p >May 2024 - Present</p>
+                            <h5 class="mt-0 font-weight-bold">Research Assistant with Dr. <a href="https://dblp.org/pid/363/1213.html" target="_blank">Andrea Matic-Flierl</a> and <a href="https://scholar.google.com/citations?user=ymcYtt8AAAAJ" target="_blank">Poulami Sinhamahapatra</a> </h5>
+                            <p >May 2024 - September 2026</p>
                             <ul>
-                                <li> Improving the robustness of 3D person detection in indoor environments to withstand adverse conditions such as occlusion and poor lighting.</li>
-                                <li>Running Camera based methods, LiDAR based methods, and Camera-LiDAR methods using mmdetection3d toolbox.</li>
+                                <li> Improved the robustness of 3D person detection in indoor environments to withstand adverse conditions such as occlusion and poor lighting.</li>
+                                <li>Ran Camera based methods, LiDAR based methods, and Camera-LiDAR methods using mmdetection3d toolbox.</li>
                             </ul>
                         </div>
                     </div>
@@ -88,15 +101,15 @@
                         <img src="../assets/images/TUM.jpg" class=" col-4  col-sm-3  col-md-2" class="mr-3" width="300" height="120" style="padding: 14px;" alt="TUM Logo" >
                         <div class="media-body">
                             <h5 class="mt-0 font-weight-bold">Research Assistant with Professor <a href="https://scholar.google.com/citations?user=OCVPHl0AAAAJ" target="_blank">Gerhard Rigoll </a>'s Lab</h5>
-                            <p >April 2024 - Present</p>
+                            <p >April 2024 - December 2024</p>
                             <ul>
-                                <li> Working on 3D object detection and tracking through multi-modal sensor fusion (camera and 4D radar)
+                                <li> Worked on 3D object detection and tracking through multi-modal sensor fusion (camera and 4D radar)
                                     using View of Delft (VOD) datasets with BEVDepth model as the baseline. </li> 
                                 <li> Implemented <a href="https://github.com/HuangJunJie2017/BEVDet" target="_blank">BevDet</a> 
                                     pipeline on VOD using mmdetection3D, achieving a mAP of 40 with
                                     BEVDepth model.</li>
                               <li> Implemented PointPillars using LiDAR and radar point clouds, achieving a mAP of 75 with LiDAR Pointpillars and 57 with radar PointPillars. </li>
-                                <li> Enhancing the radar encoder architecture for camera and 4D radar fusion and implementing kernel density
+                                <li> Enhanced the radar encoder architecture for camera and 4D radar fusion and implemented kernel density
                                     estimation method to filter out noisy radar points. </li>     
                                     <li> Some of the results can be seen <a href="https://drive.google.com/drive/folders/1fJrg3vm4hxM5czrsBKZEo9prTXqNrt50?usp=sharing"
                                           class=" font-weight-bold"   target="_blank"> here</a>.</li>   
@@ -132,7 +145,7 @@
                         <img class="col-4  col-sm-3  col-md-2" src="../assets/images/google.webp" class="mr-3" width="200" height="130" style="padding: px;" alt="Google">
                         <div class="media-body">
                             <h5 class="mb-2 font-weight-bold">Participant in Google's Computer Science Research Mentorship Program</h5>
-                            <p> September 2021 - Decemer 2021</p>
+                            <p> September 2021 - December 2021</p>
                             <ul>
                                 <li>Mentored by Dr. Leo Cheng, a Google research scientist, regarding research pathways in machine learning and data science.</li>
                                 <li> Attended a series of individual and pod meetings as well as workshops about research in computer science.   </li>

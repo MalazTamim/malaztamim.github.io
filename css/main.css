@@ -64,3 +64,89 @@ school-pic {
   height: 80px;
   width: 80px;
 }
+
+/* Centered page column shared by all pages */
+.page-wrap,
+main > .container {
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+@media (max-width: 575px) {
+  .page-wrap,
+  main > .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Section headings */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 2.5rem 0 1rem;
+}
+
+/* ---------- Dark mode (follows the device setting; the navbar toggle overrides it and is stored in localStorage) ---------- */
+html[data-theme="dark"] { color-scheme: dark; }
+html[data-theme="dark"] body { background-color: #111418; color: #d7dbe0; }
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 { color: #f3f4f6; }
+html[data-theme="dark"] a { color: #4da3ff; }
+html[data-theme="dark"] hr { border-top-color: #2a2f36; }
+html[data-theme="dark"] [style*="color: black"],
+html[data-theme="dark"] [style*="color:black"] { color: #e5e7eb !important; }
+html[data-theme="dark"] [style*="color: #666"] { color: #9aa1ad !important; }
+
+/* navbar */
+html[data-theme="dark"] .site-navbar { background-color: #161a1f !important; border-bottom-color: #2a2f36; }
+html[data-theme="dark"] .site-navbar .navbar-nav .nav-item .nav-link:not([style]) { color: #c9ced6 !important; }
+html[data-theme="dark"] .site-navbar .navbar-nav .nav-item .nav-link:not([style]):hover { color: #4da3ff !important; }
+html[data-theme="dark"] .site-navbar .navbar-nav .nav-link img { filter: invert(0.8); }
+html[data-theme="dark"] .site-navbar .navbar-toggler-icon { filter: invert(1); }
+html[data-theme="dark"] .site-navbar .navbar-toggler { border-color: #2a2f36; }
+
+/* footer */
+html[data-theme="dark"] .site-footer { background: #0d1014; border-top-color: #2a2f36; color: #9aa1ad; }
+html[data-theme="dark"] .site-footer .footer-social a { background: #1b2027; border-color: #2a2f36; }
+html[data-theme="dark"] .site-footer .footer-social a:hover { background: #0080ff; border-color: #0080ff; }
+html[data-theme="dark"] .site-footer .footer-text { color: #8b93a0; }
+
+/* homepage */
+html[data-theme="dark"] .about-photo { border-color: #2a2f36; }
+html[data-theme="dark"] .events > ul > li { background: #1a1e24; }
+html[data-theme="dark"] .events > ul > li:hover { background: #20252c; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); }
+html[data-theme="dark"] .news-date { color: #e5e7eb; }
+html[data-theme="dark"] .news-toggle { background: transparent; color: #4da3ff; }
+html[data-theme="dark"] .news-toggle:hover,
+html[data-theme="dark"] .news-toggle:focus { background: #0080ff; color: #ffffff; }
+
+/* publications */
+html[data-theme="dark"] .pub-item { background: #1a1e24; border-color: #2a2f36; border-left-color: #0080ff; }
+html[data-theme="dark"] .pub-item:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); }
+html[data-theme="dark"] .pub-title { color: #f3f4f6; }
+html[data-theme="dark"] .pub-authors { color: #c3c8d0; }
+html[data-theme="dark"] .pub-venue,
+html[data-theme="dark"] .pub-note { color: #9aa1ad; }
+html[data-theme="dark"] .pub-links a { color: #4da3ff; }
+html[data-theme="dark"] .pub-links a:hover { color: #ffffff; }
+
+/* logos keep a light tile so dark artwork stays visible */
+html[data-theme="dark"] .media > img { background: #ffffff; background-clip: content-box; }
+
+/* tables */
+html[data-theme="dark"] .table { color: #d7dbe0; }
+html[data-theme="dark"] .table a:not([href]) { color: inherit; }
+html[data-theme="dark"] .table-bordered,
+html[data-theme="dark"] .table-bordered td,
+html[data-theme="dark"] .table-bordered th,
+html[data-theme="dark"] .table thead th { border-color: #2a2f36; }
+html[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd) { background-color: rgba(255, 255, 255, 0.04); }
