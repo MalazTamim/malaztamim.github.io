@@ -99,8 +99,13 @@ main .media > img {
   height: 104px;
   object-fit: contain;
   padding: 14px 12px !important;
+  background-clip: content-box;
   margin-right: 6px;
 }
+/* square solid-colour logos: fill the whole box with their own colour (light and dark) */
+html main .media > img[src$="TUM.jpg"] { background-color: #0065bd; }
+html main .media > img[src$="sye.jpeg"] { background-color: #014b4c; }
+html main .media > img[src$="siemens.jpg"] { background-color: #009899; }
 @media (max-width: 575px) {
   main .media > img {
     flex-basis: 96px;
@@ -172,9 +177,7 @@ html[data-theme="dark"] .pub-links a:hover { color: #ffffff; }
 /* logos keep a light tile so dark artwork stays visible */
 html[data-theme="dark"] .media > img { background: #ffffff; background-clip: content-box; }
 /* the TUM logo is a solid blue square: fill its tile with the same blue so it matches the other tiles */
-html[data-theme="dark"] .media > img[src$="TUM.jpg"] { background-color: #0065bd; }
-html[data-theme="dark"] .media > img[src$="sye.jpeg"] { background-color: #014b4c; }
-html[data-theme="dark"] .media > img[src$="siemens.jpg"] { background-color: #009899; }
+
 
 /* tables */
 html[data-theme="dark"] .table { color: #d7dbe0; }
