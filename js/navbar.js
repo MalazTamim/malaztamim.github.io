@@ -24,7 +24,8 @@
       "@media (min-width: 992px) { .site-navbar .nav-link.active strong::after { transform: scaleX(1); } }" +
       ".site-navbar .navbar-brand:hover strong { color: #005bbf !important; }" +
       ".site-navbar .theme-toggle { background: none; border: 0; cursor: pointer; line-height: inherit; }" +
-      ".site-navbar .theme-toggle:focus { outline: none; }";
+      ".site-navbar .theme-toggle:focus { outline: none; }" +
+      "@media (min-width: 992px) { .site-navbar .nav-social-first { margin-left: 10px; } }";
     document.head.appendChild(styleEl);
   }
 
@@ -76,7 +77,7 @@
     '<ul class="navbar-nav ms-auto">' +
     langToggle +
     '<li class="nav-item"><button type="button" class="nav-link theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button></li>' +
-    '<li class="nav-item" style="margin-left: 10px;"><a class="nav-link" href="https://www.linkedin.com/in/malaztamim/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>' +
+    '<li class="nav-item nav-social-first"><a class="nav-link" href="https://www.linkedin.com/in/malaztamim/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>' +
     '<li class="nav-item"><a class="nav-link" href="https://twitter.com/tamimmalaz" target="_blank" title="X"><i class="fab fa-twitter"></i></a></li>' +
     '<li class="nav-item"><a class="nav-link" href="https://www.github.com/malaztamim" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></li>' +
     '<li class="nav-item"><a class="nav-link" href="https://scholar.google.com/citations?hl=en&user=mP9hyzLSXHMC" target="_blank" title="Google Scholar" rel="noopener">' +
