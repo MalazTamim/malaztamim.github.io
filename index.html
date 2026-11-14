@@ -212,7 +212,21 @@
     @media (max-width: 767px) {
       .affiliation-groups { grid-template-columns: 1fr; gap: 20px; margin-bottom: 2rem; }
       .affiliation-group + .affiliation-group { border-left: 0; padding-left: 0; border-top: 1px solid #e5e7eb; padding-top: 20px; }
-      .affiliations { gap: 8px; }
+      .aff-heading { text-align: left; margin-bottom: 4px; }
+      .affiliations { grid-template-columns: 1fr; gap: 4px; }
+      .affiliations a {
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        column-gap: 14px;
+        align-items: start;
+        text-align: left;
+        padding: 8px 0;
+      }
+      .affiliations a:hover { transform: none; }
+      .aff-logo { grid-row: 1 / span 6; width: 76px; height: 46px; padding: 4px 6px; margin: 0; }
+      .aff-name, .aff-role, .aff-years, .aff-note, .aff-partners { grid-column: 2; }
+      .aff-partners { justify-content: flex-start; }
+      .aff-partner-logo { height: 34px; }
       .about {
         flex-direction: column;
         align-items: flex-start;

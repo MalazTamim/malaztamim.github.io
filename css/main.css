@@ -106,14 +106,20 @@ main .media > img {
 html main .media > img[src$="TUM.jpg"] { background-color: #0065bd; }
 html main .media > img[src$="sye.jpeg"] { background-color: #014b4c; }
 html main .media > img[src$="siemens.jpg"] { background-color: #009899; }
+/* Phones: logo sits above the entry so the text gets the full width */
 @media (max-width: 575px) {
+  main .media { flex-direction: column; }
   main .media > img {
-    flex-basis: 96px;
-    width: 96px;
-    max-width: 96px;
-    height: 76px;
-    padding: 8px !important;
+    flex: none;
+    align-self: flex-start;
+    width: 132px;
+    max-width: 132px;
+    height: 52px;
+    padding: 6px 10px !important;
+    margin: 0 0 12px;
   }
+  main > .container div[style*="padding: 14px"] { padding: 14px 0 !important; }
+  main .media-body ul { padding-left: 1.1rem; }
 }
 
 /* ---------- Dark mode (follows the device setting; the navbar toggle overrides it and is stored in localStorage) ---------- */
